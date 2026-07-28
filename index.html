@@ -90,7 +90,6 @@
             margin-top: 2px;
         }
 
-        /* Navigation menu for desktop & mobile drawer */
         nav {
             display: flex;
             align-items: center;
@@ -122,7 +121,6 @@
             background: var(--primary-light);
         }
 
-        /* Hamburger Toggle Button */
         .menu-toggle {
             display: none;
             background: none;
@@ -133,7 +131,6 @@
             padding: 8px;
         }
 
-        /* Mobile Responsive Navigation Drawer */
         @media (max-width: 1024px) {
             .menu-toggle {
                 display: block;
@@ -177,7 +174,6 @@
             }
         }
 
-        /* Hero Banner */
         .hero {
             padding: 3rem 5% 2.5rem;
             text-align: center;
@@ -224,7 +220,6 @@
             }
         }
 
-        /* Container Grid */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -254,7 +249,6 @@
             }
         }
 
-        /* Impact Dashboard Cards */
         .grid-3 {
             display: grid;
             grid-template-columns: 1fr;
@@ -342,7 +336,6 @@
             border-radius: 50px;
         }
 
-        /* Two Column Layout */
         .two-col {
             display: grid;
             grid-template-columns: 1fr;
@@ -358,7 +351,6 @@
             }
         }
 
-        /* Form Controls */
         .form-group {
             margin-bottom: 1.2rem;
         }
@@ -402,7 +394,6 @@
             background: var(--primary-dark);
         }
 
-        /* Result Card */
         .result-card {
             background: var(--primary-light);
             padding: 1.2rem;
@@ -438,7 +429,6 @@
             }
         }
 
-        /* Live Feed */
         .feed-item {
             display: flex;
             align-items: center;
@@ -486,7 +476,6 @@
             }
         }
 
-        /* Step Card */
         .step-card {
             display: flex;
             gap: 1rem;
@@ -522,7 +511,6 @@
             }
         }
 
-        /* Gallery */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -581,7 +569,6 @@
             }
         }
 
-        /* Tim Pemimpin */
         .team-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -683,7 +670,6 @@
             margin-top: auto;
         }
 
-        /* Tabel RAB */
         .table-container {
             width: 100%;
             overflow-x: auto;
@@ -763,8 +749,8 @@
     <!-- Hero Banner -->
     <section class="hero">
         <span class="badge">🍃 Circular Economy & Environmental Action</span>
-        <h1>Platform Integrasi Komunitas Tani & Konversi Residu Organik</h1>
-        <p>Solusi digital pendukung pengelolaan residu organik sirkular secara hulu-hilir (closed-loop) untuk menekan emisi limbah, memulihkan kesehatan tanah dari ketergantungan kimia, serta menjaga keberlanjutan lingkungan lokal.</p>
+        <h1>Platform Integrasi Komunitas Tani & Konversi Sampah Pertanian</h1>
+        <p>Solusi digital pendukung pengelolaan sampah pertanian sirkular secara hulu-hilir (closed-loop) untuk menekan emisi sisa panen, memulihkan kesehatan tanah dari ketergantungan kimia, serta menjaga keberlanjutan lingkungan lokal.</p>
     </section>
 
     <div class="container">
@@ -776,11 +762,11 @@
                 <div class="card">
                     <div class="card-icon">🌾</div>
                     <div class="card-value font-mono" id="totalLimbah">1,850 kg</div>
-                    <div class="card-label">Residu Organik Terolah</div>
+                    <div class="card-label">Sampah Pertanian Terolah</div>
                     <div class="progress-box">
                         <div class="progress-fill"></div>
                     </div>
-                    <small style="font-size: 0.75rem; color: var(--text-muted); margin-top: 6px; display: block;">74% dari target reduksi limbah bulanan (2,500 kg)</small>
+                    <small style="font-size: 0.75rem; color: var(--text-muted); margin-top: 6px; display: block;">74% dari target reduksi sisa panen bulanan (2,500 kg)</small>
                 </div>
 
                 <div class="card">
@@ -794,7 +780,7 @@
                     <div class="card-icon">👨‍🌾</div>
                     <div class="card-value font-mono">15 Poktan</div>
                     <div class="card-label">Kelompok Tani Terapresiasi</div>
-                    <small style="font-size: 0.8rem; color: var(--text-muted); margin-top: 15px; display: block;">Wilayah: Pasar Tani Denai, NTT & Nias</small>
+                    <small style="font-size: 0.8rem; color: var(--text-muted); margin-top: 15px; display: block;">Wilayah Basis: Malang Raya & Sekitarnya</small>
                 </div>
             </div>
         </section>
@@ -804,20 +790,20 @@
             
             <!-- Tool 1: Kalkulator -->
             <section id="kalkulator" class="card">
-                <h3 style="color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 1.15rem;">🧪 Kalkulator Formulasi Eco Enzyme</h3>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Hitung otomatis takaran molase & air berdasarkan total berat limbah hasil panen atau pasar tani.</p>
+                <h3 style="color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 1.15rem;">🧪 Kalkulator Formulasi Pupuk Organik</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Hitung otomatis takaran molase & air berdasarkan total berat sampah pertanian atau sisa biomassa panen.</p>
 
                 <div class="form-group">
-                    <label>Berat Residu Organik (kg)</label>
+                    <label>Berat Sampah Pertanian (kg)</label>
                     <input type="number" id="inputBerat" class="form-control" placeholder="Contoh: 15" min="1">
                 </div>
 
                 <button onclick="hitungFormulasi()" class="btn">Hitung Takaran & Tanggal Panen</button>
 
                 <div id="hasilFormulasi" class="result-card">
-                    <h4 style="color: var(--primary-dark); font-size: 0.95rem;">Rasio Baku (3 Limbah : 1 Gula : 10 Air)</h4>
+                    <h4 style="color: var(--primary-dark); font-size: 0.95rem;">Rasio Baku (3 Biomassa : 1 Gula : 10 Air)</h4>
                     <ul class="result-list">
-                        <li><span>Residu Organik:</span> <span id="outLimbah" class="font-mono">-</span></li>
+                        <li><span>Sampah Pertanian:</span> <span id="outLimbah" class="font-mono">-</span></li>
                         <li><span>Molase / Gula Merah:</span> <span id="outGula" class="font-mono">-</span></li>
                         <li><span>Air Bersih:</span> <span id="outAir" class="font-mono">-</span></li>
                     </ul>
@@ -830,11 +816,11 @@
 
             <!-- Tool 2: Form Lapor Limbah -->
             <section id="lapor" class="card">
-                <h3 style="color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 1.15rem;">📝 Catat Penyetoran Residu Baru</h3>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Pencatatan real-time oleh kader tani/pemuda mitra lapangan.</p>
+                <h3 style="color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 1.15rem;">📝 Catat Penyetoran Sampah Pertanian Baru</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Pencatatan real-time sisa biomassa oleh kader tani mitra lapangan.</p>
 
                 <div class="form-group">
-                    <input type="text" id="namaPoktan" class="form-control" placeholder="Nama Poktan / Pasar">
+                    <input type="text" id="namaPoktan" class="form-control" placeholder="Nama Kelompok Tani / Wilayah Lahan">
                 </div>
                 <div class="form-group">
                     <input type="number" id="jumlahKg" class="form-control" placeholder="Berat (kg)" min="1">
@@ -845,17 +831,17 @@
                 <div id="feedList">
                     <div class="feed-item">
                         <div class="feed-info">
-                            <h4>Pasar Tani Denai</h4>
-                            <p>Limbah kubis & buah afkir</p>
+                            <h4>Kelompok Tani Tulus Makmur (Dau, Malang)</h4>
+                            <p>Sisa jerami & biomassa pasca panen padi</p>
                         </div>
-                        <span class="feed-badge font-mono">+45 kg</span>
+                        <span class="feed-badge font-mono">+120 kg</span>
                     </div>
                     <div class="feed-item">
                         <div class="feed-info">
-                            <h4>Kader Lingkungan Blok B</h4>
-                            <p>Sisa batang & daun tomat</p>
+                            <h4>Sentra Hortikultura Bumiaji (Kota Batu)</h4>
+                            <p>Sisa tanaman sayur & brangkasan cabai</p>
                         </div>
-                        <span class="feed-badge font-mono">+20 kg</span>
+                        <span class="feed-badge font-mono">+85 kg</span>
                     </div>
                 </div>
             </section>
@@ -869,8 +855,8 @@
             <div class="step-card">
                 <div class="step-num">1</div>
                 <div>
-                    <h4 style="color: var(--primary-dark); font-size: 0.95rem;">Pemilahan Spesifik Limbah Pertanian</h4>
-                    <p style="color: var(--text-muted); font-size: 0.85rem;">Gunakan khusus sisa komoditas segar pertanian (kulit buah afkir, sayur rusak, atau residu tanaman). Jangan gunakan limbah memasak yang sudah berminyak atau asin.</p>
+                    <h4 style="color: var(--primary-dark); font-size: 0.95rem;">Pemilahan Spesifik Sampah Pertanian</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Gunakan khusus sisa biomassa tanaman (jerami, sisa batang sayuran, atau brangkasan panen). Cacah terlebih dahulu agar proses fermentasi berjalan lebih cepat dan optimal.</p>
                 </div>
             </div>
 
@@ -878,15 +864,15 @@
                 <div class="step-num">2</div>
                 <div>
                     <h4 style="color: var(--primary-dark); font-size: 0.95rem;">Pencampuran Terukur & Fermentasi Anaerob</h4>
-                    <p style="color: var(--text-muted); font-size: 0.85rem;">Masukkan bahan sesuai hasil kalkulator di atas ke dalam drum plastik. Tutup rapat dan simpan di tempat teduh selama 3 bulan. Buka sedikit penutup di minggu pertama untuk membuang gas.</p>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Campurkan biomassa dengan larutan pemacu fermentasi sesuai takaran kalkulator ke dalam wadah tertutup. Simpan di tempat teduh dan pantau proses fermentasinya secara berkala.</p>
                 </div>
             </div>
 
             <div class="step-card">
                 <div class="step-num">3</div>
                 <div>
-                    <h4 style="color: var(--primary-dark); font-size: 0.95rem;">Panen & Penyiraman Lahan</h4>
-                    <p style="color: var(--text-muted); font-size: 0.85rem;">Setelah 3 bulan, saring cairan. Encerkan pupuk hayati cair ini dengan air (rasio 1 mL pupuk : 1 Liter air) sebelum disemprotkan ke tanah untuk menyuburkan lahan secara alami.</p>
+                    <h4 style="color: var(--primary-dark); font-size: 0.95rem;">Panen & Aplikasi Kembali ke Lahan</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Setelah matang sempurna, saring cairan pupuk hayati dan aplikasikan ke lahan pertanian untuk memulihkan unsur hara tanah secara berkelanjutan.</p>
                 </div>
             </div>
         </section>
@@ -896,8 +882,8 @@
             <h2 class="section-title">📸 Dokumentasi Aksi Lapangan</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Konversi Residu">
-                    <div class="gallery-caption">Proses Konversi Residu</div>
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Pengolahan Biomassa">
+                    <div class="gallery-caption">Pengolahan Sisa Biomassa</div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80" alt="Edukasi Tani">
@@ -951,12 +937,12 @@
                     </div>
                     <span class="role-badge">CAO</span>
                     <h4>Najwa Asyilah Osnasandi</h4>
-                    <p>Administrasi Rantai Pasok Pasar & Edukasi Mitra</p>
+                    <p>Administrasi Rantai Pasok Pertanian & Edukasi Mitra</p>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 6: TRANSPARANSI RAB -->
+        <!-- SECTION 6: TRANSPARANSI RAB & EKSPANSI BERTAHAP -->
         <section id="rab" class="card" style="margin-bottom: 3rem;">
             <h2 class="section-title">💸 Transparansi Estimasi RAB (Rp 20.000.000)</h2>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Alokasi penggunaan dana program hibah / CSR untuk efisiensi di berbagai wilayah operasional:</p>
@@ -965,34 +951,34 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Wilayah</th>
-                            <th>Lokasi Node</th>
-                            <th style="text-align: center;">Penerima Manfaat</th>
+                            <th>Fase & Wilayah</th>
+                            <th>Target Lokasi Node</th>
+                            <th style="text-align: center;">Fokus Utama / Penerima Manfaat</th>
                             <th style="text-align: right;">Alokasi Dana</th>
                             <th style="text-align: center;">Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Nusa Tenggara Timur</strong></td>
-                            <td>Desa Kanatang, Sumba Timur</td>
-                            <td style="text-align: center;">45 Anggota</td>
-                            <td style="text-align: right;" class="font-mono"><strong>Rp 8.400.000</strong></td>
-                            <td style="text-align: center;"><span class="feed-badge" style="background: #d8f3dc; color: #1b4332;">Aktif</span></td>
+                            <td><strong>Fase 1 (Awal)</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">Malang Raya</span></td>
+                            <td>Kota Malang, Kab. Malang, & Kota Batu</td>
+                            <td style="text-align: center;">Pilot Project & Kelompok Tani Lokal</td>
+                            <td style="text-align: right;" class="font-mono"><strong>Rp&nbsp;8.400.000</strong></td>
+                            <td style="text-align: center;"><span class="feed-badge" style="background: #d8f3dc; color: #1b4332;">Fokus Utama</span></td>
                         </tr>
                         <tr>
-                            <td><strong>Sumatera Utara</strong></td>
-                            <td>Kepulauan Nias Barat</td>
-                            <td style="text-align: center;">35 Anggota</td>
-                            <td style="text-align: right;" class="font-mono"><strong>Rp 3.600.000</strong></td>
-                            <td style="text-align: center;"><span class="feed-badge" style="background: #fef3c7; color: #92400e;">Uji Alat</span></td>
+                            <td><strong>Fase 2</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">Jawa Timur</span></td>
+                            <td>Blitar, Kediri, Pasuruan, dll.</td>
+                            <td style="text-align: center;">Perluasan ke Kabupaten/Kota Sentra Agrikultur</td>
+                            <td style="text-align: right;" class="font-mono"><strong>Rp&nbsp;3.600.000</strong></td>
+                            <td style="text-align: center;"><span class="feed-badge" style="background: #fef3c7; color: #92400e;">Tahap Lanjutan</span></td>
                         </tr>
                         <tr>
-                            <td><strong>Pengadaan Umum</strong></td>
-                            <td>Peralatan & Cadangan Admin</td>
-                            <td style="text-align: center;">-</td>
-                            <td style="text-align: right;" class="font-mono"><strong>Rp 3.000.000</strong></td>
-                            <td style="text-align: center;"><span class="feed-badge" style="background: #e2e8f0; color: #334155;">Siap Guna</span></td>
+                            <td><strong>Fase 3 & 4</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">Pulau Jawa & Bali</span></td>
+                            <td>Jawa Tengah, Jawa Barat, & Bali</td>
+                            <td style="text-align: center;">Ekspansi Regional & Wilayah Pertanian Terpadu</td>
+                            <td style="text-align: right;" class="font-mono"><strong>Rp&nbsp;8.000.000</strong></td>
+                            <td style="text-align: center;"><span class="feed-badge" style="background: #e2e8f0; color: #334155;">Skala Luas</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -1008,7 +994,6 @@
 
     <!-- JAVASCRIPT LOGIC -->
     <script>
-        // Toggle Mobile Hamburger Menu
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
 
@@ -1036,7 +1021,7 @@
             const resCard = document.getElementById('hasilFormulasi');
 
             if (isNaN(berat) || berat <= 0) {
-                alert("Silakan masukkan berat residu organik yang valid!");
+                alert("Silakan masukkan berat sampah pertanian yang valid!");
                 return;
             }
 
@@ -1064,7 +1049,7 @@
             const kg = parseFloat(document.getElementById('jumlahKg').value);
 
             if (!nama || isNaN(kg) || kg <= 0) {
-                alert("Harap isi nama kelompok tani/pasar dan berat kg dengan benar!");
+                alert("Harap isi nama kelompok tani dan berat kg dengan benar!");
                 return;
             }
 
@@ -1077,7 +1062,7 @@
             newItem.innerHTML = `
                 <div class="feed-info">
                     <h4>${nama}</h4>
-                    <p>Baru saja disetorkan (Residu Organik)</p>
+                    <p>Baru saja disetorkan (Sampah Pertanian)</p>
                 </div>
                 <span class="feed-badge font-mono">+${kg} kg</span>
             `;
@@ -1087,7 +1072,7 @@
             document.getElementById('namaPoktan').value = '';
             document.getElementById('jumlahKg').value = '';
 
-            alert("Data penyetoran limbah berhasil ditambahkan ke dashboard!");
+            alert("Data penyetoran sampah pertanian berhasil ditambahkan ke dashboard!");
         }
     </script>
 </body>
