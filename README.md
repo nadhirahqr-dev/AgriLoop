@@ -963,21 +963,21 @@
                             <td><strong>Fase 1 (Awal)</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">Malang Raya</span></td>
                             <td>Kota Malang, Kab. Malang, & Kota Batu</td>
                             <td style="text-align: center;">Pilot Project & Kelompok Tani Lokal</td>
-                            <td style="text-align: right;" class="font-mono"><strong>Rp 8.400.000</strong></td>
+                            <td style="text-align: right;" class="font-mono"><strong>Rp&nbsp;8.400.000</strong></td>
                             <td style="text-align: center;"><span class="feed-badge" style="background: #d8f3dc; color: #1b4332;">Fokus Utama</span></td>
                         </tr>
                         <tr>
                             <td><strong>Fase 2</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">Jawa Timur</span></td>
                             <td>Blitar, Kediri, Pasuruan, dll.</td>
                             <td style="text-align: center;">Perluasan ke Kabupaten/Kota Sentra Agrikultur</td>
-                            <td style="text-align: right;" class="font-mono"><strong>Rp 3.600.000</strong></td>
+                            <td style="text-align: right;" class="font-mono"><strong>Rp&nbsp;3.600.000</strong></td>
                             <td style="text-align: center;"><span class="feed-badge" style="background: #fef3c7; color: #92400e;">Tahap Lanjutan</span></td>
                         </tr>
                         <tr>
                             <td><strong>Fase 3 & 4</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">Pulau Jawa & Bali</span></td>
                             <td>Jawa Tengah, Jawa Barat, & Bali</td>
                             <td style="text-align: center;">Ekspansi Regional & Wilayah Pertanian Terpadu</td>
-                            <td style="text-align: right;" class="font-mono"><strong>Rp 8.000.000</strong></td>
+                            <td style="text-align: right;" class="font-mono"><strong>Rp&nbsp;8.000.000</strong></td>
                             <td style="text-align: center;"><span class="feed-badge" style="background: #e2e8f0; color: #334155;">Skala Luas</span></td>
                         </tr>
                     </tbody>
