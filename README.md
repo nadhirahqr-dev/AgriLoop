@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriLoop - Community Hub Pertanian Sirkular</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2d6a4f;
+            --primary-dark: #1b4332;
+            --primary-light: #d8f3dc;
+            --accent: #52b788;
+            --bg: #f8faf9;
+            --surface: #ffffff;
+            --text-main: #1d2d24;
+            --text-muted: #64748b;
+            --radius: 16px;
+            --shadow: 0 10px 30px -5px rgba(45, 106, 79, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* HEADER & HAMBURGER MENU RESPONSIVE */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 0.8rem 4%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(45, 106, 79, 0.05);
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(90deg, var(--accent), var(--primary-light), var(--accent)) 1;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .brand-logo {
+            height: 55px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(45, 106, 79, 0.15));
+            transition: transform 0.3s ease;
+        }
+
+        .brand-text {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-text span {
+            display: block;
+            font-size: 0.55rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.8px;
+            margin-top: 2px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            padding: 8px 12px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.25s ease;
+        }
+
+        nav a i {
+            font-size: 0.75rem;
+            color: var(--accent);
+            transition: color 0.25s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-dark);
+            background: var(--primary-light);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        @media (max-width: 1024px) {
+            .menu-toggle {
+                display: block;
+            }
+            nav {
+                position: fixed;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: var(--surface);
+                flex-direction: column;
+                align-items: stretch;
+                padding: 1.5rem;
+                gap: 10px;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+                border-bottom-left-radius: 20px;
+                border-bottom-right-radius: 20px;
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                pointer-events: none;
+                z-index: 999;
+            }
+            nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+            nav a {
+                padding: 12px 16px;
+                font-size: 0.95rem;
+                border-radius: 10px;
+                background: var(--bg);
+                justify-content: flex-start;
+            }
+            .brand-logo {
+                height: 45px;
+            }
+            .brand-text {
+                font-size: 1.1rem;
+            }
+        }
+
+        .hero {
+            padding: 3rem 5% 2.5rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--primary-light) 0%, var(--bg) 100%);
+        }
+
+        .badge {
+            background: var(--surface);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .hero h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            max-width: 850px;
+            margin: 0 auto 1rem;
+            line-height: 1.25;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 4rem 8% 3.5rem;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 4%;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 2rem 6%;
+            }
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 1.4rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 640px) {
+            .grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+                margin-bottom: 3rem;
+            }
+        }
+
+        .card {
+            background: var(--surface);
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: 0.3s;
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                padding: 1.8rem;
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .card-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+        }
+
+        @media (min-width: 768px) {
+            .card-value {
+                font-size: 2rem;
+            }
+        }
+
+        .card-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .progress-box {
+            margin-top: 1rem;
+            background: #f1f5f9;
+            border-radius: 50px;
+            height: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent);
+            width: 74%;
+            border-radius: 50px;
+        }
+
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (min-width: 992px) {
+            .two-col {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+                margin-bottom: 3rem;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1.5px solid #e2e8f0;
+            font-size: 0.95rem;
+            outline: none;
+            transition: 0.3s;
+            background: #fff;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .result-card {
+            background: var(--primary-light);
+            padding: 1.2rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            display: none;
+            border: 1px solid #b7e4c7;
+        }
+
+        @media (min-width: 768px) {
+            .result-card {
+                padding: 1.5rem;
+            }
+        }
+
+        .result-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .result-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 768px) {
+            .result-list li {
+                font-size: 0.9rem;
+            }
+        }
+
+        .feed-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+            gap: 10px;
+        }
+
+        .feed-info h4 {
+            font-size: 0.85rem;
+            color: var(--primary-dark);
+        }
+
+        @media (min-width: 768px) {
+            .feed-info h4 {
+                font-size: 0.9rem;
+            }
+        }
+
+        .feed-info p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        @media (min-width: 768px) {
+            .feed-info p {
+                font-size: 0.8rem;
+            }
+        }
+
+        .feed-badge {
+            background: var(--primary-light);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            white-space: nowrap;
+        }
+
+        @media (min-width: 768px) {
+            .feed-badge {
+                font-size: 0.8rem;
+            }
+        }
+
+        .step-card {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-bottom: 1.2rem;
+        }
+
+        @media (min-width: 768px) {
+            .step-card {
+                gap: 1.2rem;
+            }
+        }
+
+        .step-num {
+            background: var(--primary);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+
+        @media (min-width: 768px) {
+            .step-num {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 160px;
+            box-shadow: var(--shadow);
+        }
+
+        @media (min-width: 768px) {
+            .gallery-item {
+                height: 180px;
+            }
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(0deg, rgba(27,67,50,0.85) 0%, transparent 100%);
+            color: white;
+            padding: 8px 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-caption {
+                padding: 10px;
+                font-size: 0.8rem;
+            }
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+            align-items: stretch;
+        }
+
+        @media (min-width: 576px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .team-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1.5rem;
+            }
+        }
+
+        .team-card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 1.8rem 1.2rem 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(45, 106, 79, 0.08);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px -5px rgba(45, 106, 79, 0.15);
+        }
+
+        .team-img-wrapper {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            padding: 4px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            margin-bottom: 1rem;
+            box-shadow: 0 6px 16px rgba(45, 106, 79, 0.15);
+            flex-shrink: 0;
+        }
+
+        @media (min-width: 768px) {
+            .team-img-wrapper {
+                width: 110px;
+                height: 110px;
+            }
+        }
+
+        .team-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center 20%; 
+            background-color: var(--primary-light);
+            display: block;
+        }
+
+        .role-badge {
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            display: inline-block;
+            margin-bottom: 0.6rem;
+            text-transform: uppercase;
+        }
+
+        .team-card.featured .role-badge {
+            background: var(--primary);
+            color: white;
+        }
+
+        .team-card h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            line-height: 1.3;
+            margin-bottom: 0.4rem;
+        }
+
+        .team-card p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+            margin-top: auto;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-top: 1rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+
+        table {
+            width: 100%;
+            min-width: 600px;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.85rem;
+        }
+
+        @media (min-width: 768px) {
+            table {
+                font-size: 0.9rem;
+            }
+        }
+
+        th {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 1rem;
+            background: var(--primary-dark);
+            color: white;
+            font-size: 0.85rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation dengan Tombol Hamburger untuk Mobile -->
+    <header>
+        <a href="#" class="brand">
+            <img src="AgriLoop.png" 
+                 onerror="this.onerror=null; this.src='logo.png';" 
+                 alt="AgriLoop Logo" 
+                 class="brand-logo">
+            <div class="brand-text">
+                AgriLoop
+                <span>COMMUNITY CIRCULAR AGRICULTURE</span>
+            </div>
+        </a>
+        
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav id="navMenu">
+            <a href="#dampak" onclick="closeMenu()"><i class="fa-solid fa-chart-line"></i> Impact Tracker</a>
+            <a href="#kalkulator" onclick="closeMenu()"><i class="fa-solid fa-calculator"></i> Kalkulator</a>
+            <a href="#lapor" onclick="closeMenu()"><i class="fa-solid fa-pen-to-square"></i> Lapor Penyetoran</a>
+            <a href="#edukasi" onclick="closeMenu()"><i class="fa-solid fa-book-open"></i> Panduan Tani</a>
+            <a href="#galeri" onclick="closeMenu()"><i class="fa-solid fa-images"></i> Dokumentasi</a>
+            <a href="#tim" onclick="closeMenu()"><i class="fa-solid fa-users"></i> Tim Pemimpin</a>
+            <a href="#rab" onclick="closeMenu()"><i class="fa-solid fa-receipt"></i> Transparansi RAB</a>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <span class="badge">🍃 Circular Economy & Environmental Action</span>
+        <h1>Platform Integrasi Komunitas Tani & Konversi Sampah Pertanian</h1>
+        <p>Solusi digital pendukung pengelolaan sampah pertanian sirkular secara hulu-hilir (closed-loop) untuk menekan emisi sisa panen, memulihkan kesehatan tanah dari ketergantungan kimia, serta menjaga keberlanjutan lingkungan lokal.</p>
+    </section>
+
+    <div class="container">
+        
+        <!-- SECTION 1: DASHBOARD IMPACT TRACKER -->
+        <section id="dampak">
+            <h2 class="section-title">📊 Impact Tracker Dampak Lingkungan</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="card-icon">🌾</div>
+                    <div class="card-value font-mono" id="totalLimbah">1,850 kg</div>
+                    <div class="card-label">Sampah Pertanian Terolah</div>
+                    <div class="progress-box">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <small style="font-size: 0.75rem; color: var(--text-muted); margin-top: 6px; display: block;">74% dari target reduksi sisa panen bulanan (2,500 kg)</small>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🧪</div>
+                    <div class="card-value font-mono" id="totalPupuk">615 Liter</div>
+                    <div class="card-label">Pupuk Hayati Diproduksi</div>
+                    <small style="font-size: 0.8rem; color: var(--accent); font-weight: 700; margin-top: 15px; display: block;">Menggantikan & Menekan Pemakaian Pupuk Kimia</small>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">👨‍🌾</div>
+                    <div class="card-value font-mono">15 Poktan</div>
+                    <div class="card-label">Kelompok Tani Terapresiasi</div>
+                    <small style="font-size: 0.8rem; color: var(--text-muted); margin-top: 15px; display: block;">Wilayah Basis: Malang Raya & Sekitarnya</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: INTERACTIVE TOOLS -->
+        <div class="two-col">
+            
+            <!-- Tool 1: Kalkulator -->
+            <section id="kalkulator" class="card">
+                <h3 style="color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 1.15rem;">🧪 Kalkulator Formulasi Pupuk Organik</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.5rem;">Hitung otomatis takaran molase & air berdasarkan total berat sampah pertanian atau sisa biomassa panen.</p>
+
+                <div class="form-group">
+                    <label>Berat Sampah Pertanian (kg)</label>
+                    <input type="number" id="inputBerat" class="form-control" placeholder="Contoh: 15" min="1">
+                </div>
+
+                <button onclick="hitungFormulasi()" class="btn">Hitung Takaran & Tanggal Panen</button>
+
+                <div id="hasilFormulasi" class="result-card">
+                    <h4 style="color: var(--primary-dark); font-size: 0.95rem;">Rasio Baku (3 Biomassa : 1 Gula : 10 Air)</h4>
+                    <ul class="result-list">
+                        <li><span>Sampah Pertanian:</span> <span id="outLimbah" class="font-mono">-</span></li>
+                        <li><span>Molase / Gula Merah:</span> <span id="outGula" class="font-mono">-</span></li>
+                        <li><span>Air Bersih:</span> <span id="outAir" class="font-mono">-</span></li>
+                    </ul>
+                    <hr style="border: 0; border-top: 1px solid #b7e4c7; margin: 10px 0;">
+                    <p style="font-size: 0.85rem; color: var(--primary-dark); font-weight: 700;">
+                        📅 Estimasi Siap Panen: <span id="outPanen" class="font-mono" style="color: #d97706;">-</span>
+                    </p>
+                </div>
+            </section>
+
+            <!-- Tool 2: Form Lapor Limbah -->
+            <section id="lapor" class="card">
+                <h3 style="color: var(--primary-dark); margin-bottom: 0.5rem; font-size: 1.15rem;">📝 Catat Penyetoran Sampah Pertanian Baru</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Pencatatan real-time sisa biomassa oleh kader tani mitra lapangan.</p>
+
+                <div class="form-group">
+                    <input type="text" id="namaPoktan" class="form-control" placeholder="Nama Kelompok Tani / Wilayah Lahan">
+                </div>
+                <div class="form-group">
+                    <input type="number" id="jumlahKg" class="form-control" placeholder="Berat (kg)" min="1">
+                </div>
+                <button onclick="tambahLaporan()" class="btn" style="background: var(--accent); margin-bottom: 1.5rem;">Tambah Catatan Dashboard</button>
+
+                <h4 style="font-size: 0.9rem; color: var(--primary-dark); margin-bottom: 0.5rem;">Aktivitas Penyetoran Terbaru:</h4>
+                <div id="feedList">
+                    <div class="feed-item">
+                        <div class="feed-info">
+                            <h4>Kelompok Tani Tulus Makmur (Dau, Malang)</h4>
+                            <p>Sisa jerami & biomassa pasca panen padi</p>
+                        </div>
+                        <span class="feed-badge font-mono">+120 kg</span>
+                    </div>
+                    <div class="feed-item">
+                        <div class="feed-info">
+                            <h4>Sentra Hortikultura Bumiaji (Kota Batu)</h4>
+                            <p>Sisa tanaman sayur & brangkasan cabai</p>
+                        </div>
+                        <span class="feed-badge font-mono">+85 kg</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- SECTION 3: EDUKASI -->
+        <section id="edukasi" class="card" style="margin-bottom: 3rem;">
+            <h2 class="section-title">📚 Panduan Sederhana Standar Pengolahan</h2>
+            
+            <div class="step-card">
+                <div class="step-num">1</div>
+                <div>
+                    <h4 style="color: var(--primary-dark); font-size: 0.95rem;">Pemilahan Spesifik Sampah Pertanian</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Gunakan khusus sisa biomassa tanaman (jerami, sisa batang sayuran, atau brangkasan panen). Cacah terlebih dahulu agar proses fermentasi berjalan lebih cepat dan optimal.</p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-num">2</div>
+                <div>
+                    <h4 style="color: var(--primary-dark); font-size: 0.95rem;">Pencampuran Terukur & Fermentasi Anaerob</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Campurkan biomassa dengan larutan pemacu fermentasi sesuai takaran kalkulator ke dalam wadah tertutup. Simpan di tempat teduh dan pantau proses fermentasinya secara berkala.</p>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-num">3</div>
+                <div>
+                    <h4 style="color: var(--primary-dark); font-size: 0.95rem;">Panen & Aplikasi Kembali ke Lahan</h4>
+                    <p style="color: var(--text-muted); font-size: 0.85rem;">Setelah matang sempurna, saring cairan pupuk hayati dan aplikasikan ke lahan pertanian untuk memulihkan unsur hara tanah secara berkelanjutan.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: DOKUMENTASI -->
+        <section id="galeri" style="margin-bottom: 3rem;">
+            <h2 class="section-title">📸 Dokumentasi Aksi Lapangan</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80" alt="Pengolahan Biomassa">
+                    <div class="gallery-caption">Pengolahan Sisa Biomassa</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=600&q=80" alt="Edukasi Tani">
+                    <div class="gallery-caption">Edukasi Tani Lokal</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=600&q=80" alt="Distribusi Pupuk">
+                    <div class="gallery-caption">Distribusi Pupuk Organik</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=600&q=80" alt="Standardisasi Formula">
+                    <div class="gallery-caption">Standardisasi Formula</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: TIM PEMIMPIN EKSEKUTIF -->
+        <section id="tim" style="margin-bottom: 3rem;">
+            <h2 class="section-title">👥 Pemimpin Eksekutif AgriLoop</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="Maudzar.png" alt="Maudzar Adl Khawarizmiy" class="team-img">
+                    </div>
+                    <span class="role-badge">CEO</span>
+                    <h4>Maudzar Adl Khawarizmiy</h4>
+                    <p>Perencanaan Strategis & Evaluasi Dampak Berkelanjutan</p>
+                </div>
+
+                <div class="team-card featured">
+                    <div class="team-img-wrapper">
+                        <img src="nadhira.jpg.jpeg" alt="Nadhira Haque Ramadhania" class="team-img">
+                    </div>
+                    <span class="role-badge">CIO</span>
+                    <h4>Nadhira Haque Ramadhania</h4>
+                    <p>Inovasi Sistem Sirkular & Platform Digital</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="Sofia.png" alt="Sofia" class="team-img">
+                    </div>
+                    <span class="role-badge">CFO</span>
+                    <h4>Sofia</h4>
+                    <p>Manajemen Operasional & Pemberdayaan Komunitas</p>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-img-wrapper">
+                        <img src="Najwa.png" alt="Najwa Asyilah Osnasandi" class="team-img">
+                    </div>
+                    <span class="role-badge">CAO</span>
+                    <h4>Najwa Asyilah Osnasandi</h4>
+                    <p>Administrasi Rantai Pasok Pertanian & Edukasi Mitra</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: TRANSPARANSI RAB & EKSPANSI BERTAHAP -->
+        <section id="rab" class="card" style="margin-bottom: 3rem;">
+            <h2 class="section-title">💸 Transparansi Estimasi RAB (Rp 20.000.000)</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Alokasi penggunaan dana program hibah / CSR untuk efisiensi di berbagai wilayah operasional:</p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fase & Wilayah</th>
+                            <th>Target Lokasi Node</th>
+                            <th style="text-align: center;">Fokus Utama / Penerima Manfaat</th>
+                            <th style="text-align: right;">Alokasi Dana</th>
+                            <th style="text-align: center;">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Fase 1 (Awal)</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">Malang Raya</span></td>
+                            <td>Kota Malang, Kab. Malang, & Kota Batu</td>
+                            <td style="text-align: center;">Pilot Project & Kelompok Tani Lokal</td>
+                            <td style="text-align: right;" class="font-mono"><strong>Rp 8.400.000</strong></td>
+                            <td style="text-align: center;"><span class="feed-badge" style="background: #d8f3dc; color: #1b4332;">Fokus Utama</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fase 2</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">Jawa Timur</span></td>
+                            <td>Blitar, Kediri, Pasuruan, dll.</td>
+                            <td style="text-align: center;">Perluasan ke Kabupaten/Kota Sentra Agrikultur</td>
+                            <td style="text-align: right;" class="font-mono"><strong>Rp 3.600.000</strong></td>
+                            <td style="text-align: center;"><span class="feed-badge" style="background: #fef3c7; color: #92400e;">Tahap Lanjutan</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fase 3 & 4</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">Pulau Jawa & Bali</span></td>
+                            <td>Jawa Tengah, Jawa Barat, & Bali</td>
+                            <td style="text-align: center;">Ekspansi Regional & Wilayah Pertanian Terpadu</td>
+                            <td style="text-align: right;" class="font-mono"><strong>Rp 8.000.000</strong></td>
+                            <td style="text-align: center;"><span class="feed-badge" style="background: #e2e8f0; color: #334155;">Skala Luas</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 AgriLoop Indonesia — Community Circular Agriculture</p>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        function closeMenu() {
+            navMenu.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+
+        function hitungFormulasi() {
+            const berat = parseFloat(document.getElementById('inputBerat').value);
+            const resCard = document.getElementById('hasilFormulasi');
+
+            if (isNaN(berat) || berat <= 0) {
+                alert("Silakan masukkan berat sampah pertanian yang valid!");
+                return;
+            }
+
+            const gula = (berat / 3).toFixed(2);
+            const air = ((berat / 3) * 10).toFixed(2);
+
+            const hariIni = new Date();
+            hariIni.setMonth(hariIni.getMonth() + 3);
+            
+            const opsiTanggal = { year: 'numeric', month: 'long', day: 'numeric' };
+            const tglPanenFormatted = hariIni.toLocaleDateString('id-ID', opsiTanggal);
+
+            document.getElementById('outLimbah').innerText = berat + " kg";
+            document.getElementById('outGula').innerText = gula + " kg";
+            document.getElementById('outAir').innerText = air + " Liter";
+            document.getElementById('outPanen').innerText = tglPanenFormatted;
+
+            resCard.style.display = "block";
+        }
+
+        let currentTotalLimbah = 1850;
+
+        function tambahLaporan() {
+            const nama = document.getElementById('namaPoktan').value;
+            const kg = parseFloat(document.getElementById('jumlahKg').value);
+
+            if (!nama || isNaN(kg) || kg <= 0) {
+                alert("Harap isi nama kelompok tani dan berat kg dengan benar!");
+                return;
+            }
+
+            currentTotalLimbah += kg;
+            document.getElementById('totalLimbah').innerText = currentTotalLimbah.toLocaleString('id-ID') + " kg";
+
+            const feedList = document.getElementById('feedList');
+            const newItem = document.createElement('div');
+            newItem.className = 'feed-item';
+            newItem.innerHTML = `
+                <div class="feed-info">
+                    <h4>${nama}</h4>
+                    <p>Baru saja disetorkan (Sampah Pertanian)</p>
+                </div>
+                <span class="feed-badge font-mono">+${kg} kg</span>
+            `;
+
+            feedList.insertBefore(newItem, feedList.firstChild);
+
+            document.getElementById('namaPoktan').value = '';
+            document.getElementById('jumlahKg').value = '';
+
+            alert("Data penyetoran sampah pertanian berhasil ditambahkan ke dashboard!");
+        }
+    </script>
+</body>
+</html>
