@@ -613,10 +613,10 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            padding: 4px;
+            padding: 3px;
             background: linear-gradient(135deg, var(--accent), var(--primary));
             margin-bottom: 1rem;
-            box-shadow: 0 6px 16px rgba(45, 106, 79, 0.15);
+            box-shadow: 0 4px 12px rgba(45, 106, 79, 0.15);
             flex-shrink: 0;
         }
 
@@ -627,14 +627,32 @@
             }
         }
 
+        .team-img-wrapper.najwa-wrapper {
+            background: var(--accent);
+            padding: 3px;
+        }
+
         .team-img {
             width: 100%;
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            object-position: center 20%; 
             background-color: var(--primary-light);
             display: block;
+        }
+
+        .img-maudzar {
+            object-position: center 20%;
+        }
+        .img-nadhira {
+            object-position: center 20%;
+            background-color: var(--primary-light);
+        }
+        .img-sofia {
+            object-position: center 15%;
+        }
+        .img-najwa {
+            object-position: center 15%;
         }
 
         .role-badge {
@@ -648,11 +666,6 @@
             display: inline-block;
             margin-bottom: 0.6rem;
             text-transform: uppercase;
-        }
-
-        .team-card.featured .role-badge {
-            background: var(--primary);
-            color: white;
         }
 
         .team-card h4 {
@@ -681,7 +694,7 @@
 
         table {
             width: 100%;
-            min-width: 600px;
+            min-width: 650px;
             border-collapse: collapse;
             text-align: left;
             font-size: 0.85rem;
@@ -696,14 +709,48 @@
         th {
             background: var(--primary-light);
             color: var(--primary-dark);
-            padding: 12px;
+            padding: 14px 12px;
             font-weight: 700;
             white-space: nowrap;
         }
 
         td {
-            padding: 12px;
+            padding: 14px 12px;
             border-bottom: 1px solid #f1f5f9;
+            vertical-align: middle;
+        }
+
+        .money-cell {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+        }
+
+        .status-pill {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .pill-fokus {
+            background: #d8f3dc;
+            color: #1b4332;
+        }
+
+        .pill-lanjutan {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .pill-luas {
+            background: #e2e8f0;
+            color: #334155;
         }
 
         footer {
@@ -718,7 +765,7 @@
 </head>
 <body>
 
-    <!-- Header Navigation dengan Tombol Hamburger untuk Mobile -->
+    <!-- Header Navigation -->
     <header>
         <a href="#" class="brand">
             <img src="AgriLoop.png" 
@@ -906,25 +953,25 @@
             <div class="team-grid">
                 <div class="team-card">
                     <div class="team-img-wrapper">
-                        <img src="Maudzar.png" alt="Maudzar Adl Khawarizmiy" class="team-img">
+                        <img src="Maudzar.png" alt="Maudzar Adl Khawarizmiy" class="team-img img-maudzar">
                     </div>
                     <span class="role-badge">CEO</span>
                     <h4>Maudzar Adl Khawarizmiy</h4>
                     <p>Perencanaan Strategis & Evaluasi Dampak Berkelanjutan</p>
                 </div>
 
-                <div class="team-card featured">
+                <div class="team-card">
                     <div class="team-img-wrapper">
-                        <img src="nadhira.jpg.jpeg" alt="Nadhira Haque Ramadhania" class="team-img">
+                        <img src="nadhira.jpg-removebg-preview.png" alt="Nadhira Haque Ramadhania" class="team-img img-nadhira">
                     </div>
-                    <span class="role-badge">CIO</span>
+                    <span class="role-badge" style="background: var(--primary-light); color: var(--primary-dark);">CIO</span>
                     <h4>Nadhira Haque Ramadhania</h4>
                     <p>Inovasi Sistem Sirkular & Platform Digital</p>
                 </div>
 
                 <div class="team-card">
                     <div class="team-img-wrapper">
-                        <img src="Sofia.png" alt="Sofia" class="team-img">
+                        <img src="Sofia (3).png" alt="Sofia" class="team-img img-sofia">
                     </div>
                     <span class="role-badge">CFO</span>
                     <h4>Sofia</h4>
@@ -932,8 +979,8 @@
                 </div>
 
                 <div class="team-card">
-                    <div class="team-img-wrapper">
-                        <img src="Najwa.png" alt="Najwa Asyilah Osnasandi" class="team-img">
+                    <div class="team-img-wrapper najwa-wrapper">
+                        <img src="Najwa.png" alt="Najwa Asyilah Osnasandi" class="team-img img-najwa">
                     </div>
                     <span class="role-badge">CAO</span>
                     <h4>Najwa Asyilah Osnasandi</h4>
@@ -942,43 +989,67 @@
             </div>
         </section>
 
-        <!-- SECTION 6: TRANSPARANSI RAB & EKSPANSI BERTAHAP -->
+        <!-- SECTION 6: TRANSPARANSI RAB & ALOKASI DANA -->
         <section id="rab" class="card" style="margin-bottom: 3rem;">
             <h2 class="section-title">💸 Transparansi Estimasi RAB (Rp 20.000.000)</h2>
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Alokasi penggunaan dana program hibah / CSR untuk efisiensi di berbagai wilayah operasional:</p>
-
+            
             <div class="table-container">
                 <table>
                     <thead>
                         <tr>
                             <th>Fase & Wilayah</th>
                             <th>Target Lokasi Node</th>
-                            <th style="text-align: center;">Fokus Utama / Penerima Manfaat</th>
-                            <th style="text-align: right;">Alokasi Dana</th>
-                            <th style="text-align: center;">Status</th>
+                            <th>Fokus Utama / Penerima Manfaat</th>
+                            <th>Alokasi Dana</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Fase 1 (Awal)</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">Malang Raya</span></td>
+                            <td>
+                                <strong>Fase 1 (Awal)</strong><br>
+                                <span style="font-size: 0.75rem; color: var(--text-muted);">Malang Raya</span>
+                            </td>
                             <td>Kota Malang, Kab. Malang, & Kota Batu</td>
-                            <td style="text-align: center;">Pilot Project & Kelompok Tani Lokal</td>
-                            <td style="text-align: right;" class="font-mono"><strong>Rp&nbsp;8.400.000</strong></td>
-                            <td style="text-align: center;"><span class="feed-badge" style="background: #d8f3dc; color: #1b4332;">Fokus Utama</span></td>
+                            <td>Pilot Project & Kelompok Tani Lokal</td>
+                            <td>
+                                <div class="money-cell">
+                                    <span>Rp</span>
+                                    <span>8.400.000</span>
+                                </div>
+                            </td>
+                            <td><span class="status-pill pill-fokus">Fokus Utama</span></td>
                         </tr>
                         <tr>
-                            <td><strong>Fase 2</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">Jawa Timur</span></td>
+                            <td>
+                                <strong>Fase 2</strong><br>
+                                <span style="font-size: 0.75rem; color: var(--text-muted);">Jawa Timur</span>
+                            </td>
                             <td>Blitar, Kediri, Pasuruan, dll.</td>
-                            <td style="text-align: center;">Perluasan ke Kabupaten/Kota Sentra Agrikultur</td>
-                            <td style="text-align: right;" class="font-mono"><strong>Rp&nbsp;3.600.000</strong></td>
-                            <td style="text-align: center;"><span class="feed-badge" style="background: #fef3c7; color: #92400e;">Tahap Lanjutan</span></td>
+                            <td>Perluasan ke Kabupaten/Kota Sentra Agrikultur</td>
+                            <td>
+                                <div class="money-cell">
+                                    <span>Rp</span>
+                                    <span>3.600.000</span>
+                                </div>
+                            </td>
+                            <td><span class="status-pill pill-lanjutan">Tahap Lanjutan</span></td>
                         </tr>
                         <tr>
-                            <td><strong>Fase 3 & 4</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">Pulau Jawa & Bali</span></td>
+                            <td>
+                                <strong>Fase 3 & 4</strong><br>
+                                <span style="font-size: 0.75rem; color: var(--text-muted);">Pulau Jawa & Bali</span>
+                            </td>
                             <td>Jawa Tengah, Jawa Barat, & Bali</td>
-                            <td style="text-align: center;">Ekspansi Regional & Wilayah Pertanian Terpadu</td>
-                            <td style="text-align: right;" class="font-mono"><strong>Rp&nbsp;8.000.000</strong></td>
-                            <td style="text-align: center;"><span class="feed-badge" style="background: #e2e8f0; color: #334155;">Skala Luas</span></td>
+                            <td>Ekspansi Regional & Wilayah Pertanian Terpadu</td>
+                            <td>
+                                <div class="money-cell">
+                                    <span>Rp</span>
+                                    <span>8.000.000</span>
+                                </div>
+                            </td>
+                            <td><span class="status-pill pill-luas">Skala Luas</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -992,87 +1063,72 @@
         <p>&copy; 2026 AgriLoop Indonesia — Community Circular Agriculture</p>
     </footer>
 
-    <!-- JAVASCRIPT LOGIC -->
+    <!-- JavaScript Interactivity -->
     <script>
+        // Toggle mobile menu
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
 
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
-            const icon = menuToggle.querySelector('i');
-            if (navMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-xmark');
-            } else {
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-bars');
-            }
         });
 
         function closeMenu() {
             navMenu.classList.remove('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.remove('fa-xmark');
-            icon.classList.add('fa-bars');
         }
 
+        // Kalkulator Formulasi Pupuk
         function hitungFormulasi() {
             const berat = parseFloat(document.getElementById('inputBerat').value);
-            const resCard = document.getElementById('hasilFormulasi');
-
-            if (isNaN(berat) || berat <= 0) {
-                alert("Silakan masukkan berat sampah pertanian yang valid!");
+            if (!berat || berat <= 0) {
+                alert('Mohon masukkan berat sampah pertanian yang valid!');
                 return;
             }
 
-            const gula = (berat / 3).toFixed(2);
-            const air = ((berat / 3) * 10).toFixed(2);
+            // Rasio 3 : 1 : 10 (Contoh: 3kg sampah : 1kg gula : 10L air)
+            const gula = (berat / 3).toFixed(1);
+            const air = ((berat / 3) * 10).toFixed(1);
 
-            const hariIni = new Date();
-            hariIni.setMonth(hariIni.getMonth() + 3);
-            
-            const opsiTanggal = { year: 'numeric', month: 'long', day: 'numeric' };
-            const tglPanenFormatted = hariIni.toLocaleDateString('id-ID', opsiTanggal);
+            document.getElementById('outLimbah').innerText = berat + ' kg';
+            document.getElementById('outGula').innerText = gula + ' kg (atau liter molase)';
+            document.getElementById('outAir').innerText = air + ' Liter';
 
-            document.getElementById('outLimbah').innerText = berat + " kg";
-            document.getElementById('outGula').innerText = gula + " kg";
-            document.getElementById('outAir').innerText = air + " Liter";
-            document.getElementById('outPanen').innerText = tglPanenFormatted;
+            // Estimasi panen 14 hari kedepan
+            let tglPanen = new Date();
+            tglPanen.setDate(tglPanen.getDate() + 14);
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('outPanen').innerText = tglPanen.toLocaleDateString('id-ID', options);
 
-            resCard.style.display = "block";
+            document.getElementById('hasilFormulasi').style.display = 'block';
         }
 
-        let currentTotalLimbah = 1850;
-
+        // Tambah Laporan Penyetoran
         function tambahLaporan() {
-            const nama = document.getElementById('namaPoktan').value;
-            const kg = parseFloat(document.getElementById('jumlahKg').value);
+            const poktan = document.getElementById('namaPoktan').value.trim();
+            const kg = document.getElementById('jumlahKg').value.trim();
 
-            if (!nama || isNaN(kg) || kg <= 0) {
-                alert("Harap isi nama kelompok tani dan berat kg dengan benar!");
+            if (!poktan || !kg) {
+                alert('Mohon isi nama kelompok tani dan berat sampah!');
                 return;
             }
-
-            currentTotalLimbah += kg;
-            document.getElementById('totalLimbah').innerText = currentTotalLimbah.toLocaleString('id-ID') + " kg";
 
             const feedList = document.getElementById('feedList');
             const newItem = document.createElement('div');
             newItem.className = 'feed-item';
             newItem.innerHTML = `
                 <div class="feed-info">
-                    <h4>${nama}</h4>
-                    <p>Baru saja disetorkan (Sampah Pertanian)</p>
+                    <h4>${poktan}</h4>
+                    <p>Sisa biomassa & sisa panen organik</p>
                 </div>
                 <span class="feed-badge font-mono">+${kg} kg</span>
             `;
 
-            feedList.insertBefore(newItem, feedList.firstChild);
+            feedList.prepend(newItem);
 
+            // Reset input
             document.getElementById('namaPoktan').value = '';
             document.getElementById('jumlahKg').value = '';
-
-            alert("Data penyetoran sampah pertanian berhasil ditambahkan ke dashboard!");
+            alert('Catatan penyetoran berhasil ditambahkan ke dashboard!');
         }
     </script>
 </body>
